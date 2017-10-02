@@ -11,23 +11,10 @@
     </ons-toolbar>
       <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
         <script>
-            function serverconnect(url,params,callbackserver){
-                var xhr = new XMLHttpRequest();
-                var url = "http://api.alquran.cloud/surah/1/en.asad";
-                //var params = “name=ben”;
-            
-            	xhr.open(“POST”, url, true);
-            	xhr.setRequestHeader(“Content-type”, “application/x-www-form-urlencoded”);
-            	xhr.onreadystatechange = function(){
-            		if(xhr.readyState == 4 && xhr.status == 200){
-            			console.log(xhr.responseText);
-            			return 1;
-            		}else{
-            			return 0;
-            		}
-            	}
-            	//xhr.send(params);;
+            function test(){
+                console.log('Testing Nih');
             }
+            test();
         </script>
       </p>
   </ons-page>
