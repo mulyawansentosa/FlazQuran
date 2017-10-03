@@ -6,13 +6,28 @@
         </ons-toolbar-button>
       </div>
       <div class="center">
-        Al Fatihah
+        <div id="surah"></div>
       </div>
     </ons-toolbar>
       <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
         <script>
             function test(){
-                console.log('Testing Nih');
+                ons.ready(function(){
+                    var xhttp = new XMLHttpRequest();
+                    var url = "http://api.alquran.cloud/surah/1/en.asad";
+                    xhttp.onreadystatechange = function() {
+                        if (xhttp.readyState == 4 && xhttp.status == 200){
+                            console.log(xhttp.responseText);
+                            var result  = JSON.parse(xhttp.responseText);
+                            document.getElementById("surah").innerHTML = result.data.name;
+                            console.log(result.data.name);
+                        }else{
+                            console.log('Gak Jalan');
+                        }
+                    };
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                });
             }
             test();
         </script>
