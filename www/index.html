@@ -18,7 +18,7 @@
     });
 
     window.fn = {};
-    window.fn.open = function() {
+    window.fn.open = function(){
       var menu = document.getElementById('menu');
       menu.open();
     };
@@ -30,9 +30,20 @@
         .then(menu.close.bind(menu));
     };
 
+    window.fn.loadsurah = function(idsurah) {
+        document.getElementById('idsurah').value = idsurah;
+        var content = document.getElementById('content');
+        var menu = document.getElementById('menu');
+        content
+        .load('surah.html')
+        .then(menu.close.bind(menu));
+    };
+
   </script>
 </head>
 <body>
+    <input type="hidden" id="idsurah">
+    </input>
   <ons-splitter>
     <ons-splitter-side id="menu" page="menu.html" side="left" width="220px" collapse swipeable>
     </ons-splitter-side>

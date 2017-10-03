@@ -1,0 +1,67 @@
+  <ons-page id="surat.html">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        <div id="surah"></div>
+      </div>
+    </ons-toolbar>
+        <div id="title" style="color: white; background-color: #202340; width: 100%; height: 100px; text-align: right;">
+            <div id="title_arabic" style="font-size: 200%; padding-right: 15px;">
+            </div>
+            <div id="title_english" style="font-size: 100%; padding-right: 15px;">
+            </div>
+            <div id="title_revelation" style="font-size: 50%; padding-right: 15px;">
+            </div>
+            <div id="title_number" style="font-size: 50%; padding-right: 15px;">
+            </div>
+        </div>
+        <ons-list id="suratini">
+        </ons-list>
+            <script>
+                function test(){
+                    ons.ready(function(){
+                        var xhttp = new XMLHttpRequest();
+                        var idsurah = document.getElementById('idsurah').value;
+                        var url = "http://api.alquran.cloud/surah/"+idsurah+"/editions/quran-uthmani,en.asad,en.pickthall";
+                        xhttp.onreadystatechange = function() {
+                            if (xhttp.readyState == 4 && xhttp.status == 200){
+                                console.log(xhttp.responseText);
+                                var result  = JSON.parse(xhttp.responseText);
+                                document.getElementById("surah").innerHTML              = result.data[0].name;
+                                document.getElementById("title_arabic").innerHTML       = result.data[0].name;
+                                document.getElementById("title_english").innerHTML      = result.data[0].englishNameTranslation;
+                                document.getElementById("title_revelation").innerHTML   = 'Descent in '+result.data[0].revelationType;
+                                document.getElementById("title_number").innerHTML       = result.data[0].numberOfAyahs+' Ayahs';
+
+                                var list = document.getElementById("suratini");
+                                for (var i = 0; i < result.data[0].ayahs.length; i++){
+                                    var option = document.createElement("ons-list-item");
+                                    //option.setAttribute('tappable', 'tappable');
+                                    //<audio id='audio"+i+"' src='"+result.data.ayahs[i].audio+"' type='audio/mpeg'></audio>
+                                    //option.innerHTML = "<div class='right'><img class='list-item__thumbnail' src='/res/android/icon/speaker.png' onclick='play("+i+")'></div><div class='center'><span class='list-item__title' style='font-size: 125%;'>"+result.data[0].ayahs[i].text+"</span><span class='list-item__subtitle'>"+result.data[1].ayahs[i].text+"</span></div>";
+                                    option.innerHTML = "<div class='center'><span class='list-item__title' style='font-size: 125%;'>"+result.data[0].ayahs[i].text+"</span><span class='list-item__subtitle'>"+result.data[1].ayahs[i].text+"</span></div>";
+                                    list.appendChild(option);
+                                }   
+                            }else{
+                                console.log('Gak Jalan');
+                            }
+                        };
+                        xhttp.open("GET", url, true);
+                        xhttp.send();
+                    });
+                }
+                test();     
+                function play(id){
+                    ons.ready(function(){
+                        /*
+                        var audio = document.getElementById('audio'+id);
+                        audio.play();
+                        */
+                    });
+                }
+            </script>
+</ons-page>
