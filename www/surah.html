@@ -6,44 +6,74 @@
         </ons-toolbar-button>
       </div>
       <div class="center">
+        <input type="hidden" id="surahlength" />
         <div id="surah"></div>
       </div>
     </ons-toolbar>
-        <div id="title" style="color: white; background-color: #202340; width: 100%; height: 100px; text-align: right;">
-            <div id="title_arabic" style="font-size: 200%; padding-right: 15px;">
+            <ons-fab position="top left" style="margin-top: 58px;">
+                <ons-icon onclick="playall()" icon="md-volume-up" tappable></ons-icon>
+            </ons-fab>
+            <div id="title" style="color: white; background-color: #202340; width: 100%; height: 100px; text-align: right;">
+                    <div id="title_arabic" style="font-size: 200%; padding-right: 15px;">
+                    </div>
+                    <div id="title_english" style="font-size: 100%; padding-right: 15px;">
+                    </div>
+                    <div id="title_revelation" style="font-size: 50%; padding-right: 15px;">
+                    </div>
+                    <div id="title_number" style="font-size: 50%; padding-right: 15px;">
+                    </div>
             </div>
-            <div id="title_english" style="font-size: 100%; padding-right: 15px;">
-            </div>
-            <div id="title_revelation" style="font-size: 50%; padding-right: 15px;">
-            </div>
-            <div id="title_number" style="font-size: 50%; padding-right: 15px;">
-            </div>
-        </div>
-        <ons-list id="suratini">
-        </ons-list>
+            <ons-list id="suratini">
+            </ons-list>
             <script>
-                function test(){
+                window.audio        = [];
+                window.urutan       = 0;
+                window.surahlength  = 0;
+                window.translated   = '';
+                function loadquran(){
                     ons.ready(function(){
-                        var xhttp = new XMLHttpRequest();
+                        var xhttp   = new XMLHttpRequest();
                         var idsurah = document.getElementById('idsurah').value;
-                        var url = "http://api.alquran.cloud/surah/"+idsurah+"/editions/quran-uthmani,en.asad,en.pickthall";
+                        var url     = "http://api.alquran.cloud/surah/"+idsurah+"/editions/ar.alafasy,en.pickthall";
+                        var lang    = document.getElementById('idlanguage').value;
+                        console.log(lang);
+                        var translation   = '';
                         xhttp.onreadystatechange = function() {
                             if (xhttp.readyState == 4 && xhttp.status == 200){
-                                console.log(xhttp.responseText);
                                 var result  = JSON.parse(xhttp.responseText);
                                 document.getElementById("surah").innerHTML              = result.data[0].name;
                                 document.getElementById("title_arabic").innerHTML       = result.data[0].name;
                                 document.getElementById("title_english").innerHTML      = result.data[0].englishNameTranslation;
                                 document.getElementById("title_revelation").innerHTML   = 'Descent in '+result.data[0].revelationType;
                                 document.getElementById("title_number").innerHTML       = result.data[0].numberOfAyahs+' Ayahs';
-
+                                document.getElementById('surahlength').value = result.data[0].ayahs.length;
                                 var list = document.getElementById("suratini");
                                 for (var i = 0; i < result.data[0].ayahs.length; i++){
-                                    var option = document.createElement("ons-list-item");
-                                    //option.setAttribute('tappable', 'tappable');
-                                    //<audio id='audio"+i+"' src='"+result.data.ayahs[i].audio+"' type='audio/mpeg'></audio>
-                                    //option.innerHTML = "<div class='right'><img class='list-item__thumbnail' src='/res/android/icon/speaker.png' onclick='play("+i+")'></div><div class='center'><span class='list-item__title' style='font-size: 125%;'>"+result.data[0].ayahs[i].text+"</span><span class='list-item__subtitle'>"+result.data[1].ayahs[i].text+"</span></div>";
-                                    option.innerHTML = "<div class='center'><span class='list-item__title' style='font-size: 125%;'>"+result.data[0].ayahs[i].text+"</span><span class='list-item__subtitle'>"+result.data[1].ayahs[i].text+"</span></div>";
+                                    var option  = document.createElement("ons-list-item");
+                                    if(lang){
+                                        var trans       = result.data[1].ayahs[i].text;
+                                        var api_key     = "AIzaSyAxHN5Lc4RrccmKEwCcPtdrUj1TTIxwUhM";
+                                        var http        = new XMLHttpRequest();
+                                        var url         = "https://translation.googleapis.com/language/translate/v2?key="+api_key;
+                                        //var params      = JSON.stringify({'q':trans,'target':lang});
+                                        var params      = JSON.stringify({'q':trans,'target':lang});
+                                        http.open("POST", url, false);
+                                        
+                                        http.setRequestHeader("Content-type", "application/json; charset=utf-8");
+                                        http.onreadystatechange = function(){
+                                            if(http.readyState == 4 && http.status == 200){
+                                                var hasil  = JSON.parse(http.responseText);
+                                                console.log(hasil.data.translations[0].translatedText);
+                                                translated     = hasil.data.translations[0].translatedText;
+                                            }
+                                        }
+                                        http.send(params);                    
+                                        
+                                        //translated     = translate(result.data[1].ayahs[i].text,lang);                                    
+                                    }else{
+                                        translated     = result.data[1].ayahs[i].text;
+                                    }
+                                    option.innerHTML = "<div class='right'><ons-icon onclick='play("+i+")' icon='md-volume-up' tappable></ons-icon></div><div class='center'><span class='list-item__title' style='font-size: 125%;'>"+result.data[0].ayahs[i].text+"</span><span class='list-item__subtitle'>"+translated+"</span></div><audio id='audio"+i+"' src='"+result.data[0].ayahs[i].audio+"' type='audio/mpeg'></audio>";
                                     list.appendChild(option);
                                 }   
                             }else{
@@ -54,14 +84,62 @@
                         xhttp.send();
                     });
                 }
-                test();     
+                loadquran();    
                 function play(id){
                     ons.ready(function(){
-                        /*
                         var audio = document.getElementById('audio'+id);
                         audio.play();
-                        */
                     });
                 }
+                function playone(){
+                    audio[urutan].play();                                
+                    audio[urutan].addEventListener("ended", function(){
+                        urutan++;
+                        if(urutan < surahlength){
+                            playtwo();
+                        }
+                    });                    
+                }
+                function playtwo(){
+                    audio[urutan].play();                                
+                    audio[urutan].addEventListener("ended", function(){
+                        urutan++;
+                        if(urutan < surahlength){
+                            playone();
+                        }
+                    });                    
+                }
+                function playall(){
+                    ons.ready(function(){
+                        surahlength = document.getElementById('surahlength').value;
+                        for(var ii = 0; ii < surahlength; ii++){
+                            audio.push(document.getElementById('audio'+ii));
+                        }
+                        audio[0].pause();
+                        playone();
+                    });                    
+                }
+                /*
+                function translate(trans,lang){
+                    ons.ready(function(){
+                        var api_key     = "AIzaSyAxHN5Lc4RrccmKEwCcPtdrUj1TTIxwUhM";
+                        var http        = new XMLHttpRequest();
+                        var url         = "https://translation.googleapis.com/language/translate/v2?key="+api_key;
+                        //var params      = JSON.stringify({'q':trans,'target':lang});
+                        var params      = JSON.stringify({'q':trans,'target':lang});
+                        http.open("POST", url, false);
+                        
+                        http.setRequestHeader("Content-type", "application/json; charset=utf-8");
+                        http.onreadystatechange = function(){
+                            if(http.readyState == 4 && http.status == 200){
+                                var hasil  = JSON.parse(http.responseText);
+                                console.log(hasil.data.translations[0].translatedText);
+                                return hasil.data.translations[0].translatedText;
+                            }
+                        }
+                        http.send(params);                    
+                    });                    
+                }
+                */
             </script>
 </ons-page>

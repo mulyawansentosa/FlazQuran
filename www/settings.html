@@ -1,0 +1,512 @@
+  <ons-page id="about.html">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button onclick="fn.open()">
+          <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">
+        Settings
+      </div>
+    </ons-toolbar>
+    <ons-list>
+        <ons-list-header>Chose Language</ons-list-header>
+        <ons-list-item tappable onclick="changelanguage('af')">
+          <label class="left">
+            <ons-radio name="language" id="af" input-id="af" value="af"></ons-radio>
+          </label>
+          <label for="af" class="center">
+            Afrikaans
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('sq')">
+          <label class="left">
+            <ons-radio name="language" id="sq" input-id="sq" value="sq"></ons-radio>
+          </label>
+          <label for="sq" class="center">
+            Albanian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ar')">
+          <label class="left">
+            <ons-radio name="language" id="ar" input-id="ar" value="ar"></ons-radio>
+          </label>
+          <label for="ar" class="center">
+            Arabic
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('hy')">
+          <label class="left">
+            <ons-radio name="language" id="hy" input-id="hy" value="hy"></ons-radio>
+          </label>
+          <label for="hy" class="center">
+            Armenian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('bn')">
+          <label class="left">
+            <ons-radio name="language" id="bn" input-id="bn" value="bn"></ons-radio>
+          </label>
+          <label for="bn" class="center">
+            Bengali
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('bs')">
+          <label class="left">
+            <ons-radio name="language" id="bs" input-id="bs" value="bs"></ons-radio>
+          </label>
+          <label for="bs" class="center">
+            Bosnian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('bg')">
+          <label class="left">
+            <ons-radio name="language" id="bg" input-id="bg" value="bg"></ons-radio>
+          </label>
+          <label for="bg" class="center">
+            Bulgarian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('zh-CN')">
+          <label class="left">
+            <ons-radio name="language" id="zh-CN" input-id="zh-CN" value="zh-CN"></ons-radio>
+          </label>
+          <label for="zh-CN" class="center">
+            Chinese
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('hr')">
+          <label class="left">
+            <ons-radio name="language" id="hr" input-id="hr" value="hr"></ons-radio>
+          </label>
+          <label for="hr" class="center">
+            Croatian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('cs')">
+          <label class="left">
+            <ons-radio name="language" id="cs" input-id="cs" value="cs"></ons-radio>
+          </label>
+          <label for="cs" class="center">
+            Czech
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('da')">
+          <label class="left">
+            <ons-radio name="language" id="da" input-id="da" value="da"></ons-radio>
+          </label>
+          <label for="da" class="center">
+            Danish
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('nl')">
+          <label class="left">
+            <ons-radio name="language" id="nl" input-id="nl" value="nl"></ons-radio>
+          </label>
+          <label for="nl" class="center">
+            Dutch
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('en')">
+          <label class="left">
+            <ons-radio name="language" id="en" input-id="en" value="en" checked></ons-radio>
+          </label>
+          <label for="en" class="center">
+            English
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('fr')">
+          <label class="left">
+            <ons-radio name="language" id="fr" input-id="fr" value="fr"></ons-radio>
+          </label>
+          <label for="fr" class="cfrter">
+            French
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ka')">
+          <label class="left">
+            <ons-radio name="language" id="ka" input-id="ka" value="ka"></ons-radio>
+          </label>
+          <label for="ka" class="ckater">
+            Georgian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('de')">
+          <label class="left">
+            <ons-radio name="language" id="de" input-id="de" value="de"></ons-radio>
+          </label>
+          <label for="de" class="cdeter">
+            German
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('el')">
+          <label class="left">
+            <ons-radio name="language" id="el" input-id="el" value="el"></ons-radio>
+          </label>
+          <label for="el" class="celter">
+            Greek
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('gu')">
+          <label class="left">
+            <ons-radio name="language" id="gu" input-id="gu" value="gu"></ons-radio>
+          </label>
+          <label for="gu" class="celter">
+            Gujarati
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('haw')">
+          <label class="left">
+            <ons-radio name="language" id="haw" input-id="haw" value="haw"></ons-radio>
+          </label>
+          <label for="haw" class="celter">
+            Hawaiian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('iw')">
+          <label class="left">
+            <ons-radio name="language" id="iw" input-id="iw" value="iw"></ons-radio>
+          </label>
+          <label for="iw" class="celter">
+            Hebrew
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('hi')">
+          <label class="left">
+            <ons-radio name="language" id="hi" input-id="hi" value="hi"></ons-radio>
+          </label>
+          <label for="hi" class="celter">
+            Hindi
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('hu')">
+          <label class="left">
+            <ons-radio name="language" id="hu" input-id="hu" value="hu"></ons-radio>
+          </label>
+          <label for="hu" class="celter">
+            Hungarian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('is')">
+          <label class="left">
+            <ons-radio name="language" id="is" input-id="is" value="is"></ons-radio>
+          </label>
+          <label for="is" class="celter">
+            Icelandic
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('id')">
+          <label class="left">
+            <ons-radio name="language" id="id" input-id="id" value="id"></ons-radio>
+          </label>
+          <label for="id" class="celter">
+            Indonesian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('it')">
+          <label class="left">
+            <ons-radio name="language" id="it" input-id="it" value="it"></ons-radio>
+          </label>
+          <label for="it" class="celter">
+            Italian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ja')">
+          <label class="left">
+            <ons-radio name="language" id="ja" input-id="ja" value="ja"></ons-radio>
+          </label>
+          <label for="ja" class="celter">
+            Japanese
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('jw')">
+          <label class="left">
+            <ons-radio name="language" id="jw" input-id="jw" value="jw"></ons-radio>
+          </label>
+          <label for="jw" class="celter">
+            Javanese
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('kn')">
+          <label class="left">
+            <ons-radio name="language" id="kn" input-id="kn" value="kn"></ons-radio>
+          </label>
+          <label for="kn" class="celter">
+            Kannada
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('kk')">
+          <label class="left">
+            <ons-radio name="language" id="kk" input-id="kk" value="kk"></ons-radio>
+          </label>
+          <label for="kk" class="celter">
+            Kazakh
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('km')">
+          <label class="left">
+            <ons-radio name="language" id="km" input-id="km" value="km"></ons-radio>
+          </label>
+          <label for="km" class="celter">
+            Khmer
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ko')">
+          <label class="left">
+            <ons-radio name="language" id="ko" input-id="ko" value="ko"></ons-radio>
+          </label>
+          <label for="ko" class="celter">
+            Korean
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ku')">
+          <label class="left">
+            <ons-radio name="language" id="ku" input-id="ku" value="ku"></ons-radio>
+          </label>
+          <label for="ku" class="celter">
+            Kurdish
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('la')">
+          <label class="left">
+            <ons-radio name="language" id="la" input-id="la" value="la"></ons-radio>
+          </label>
+          <label for="la" class="celter">
+            Latin
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('lv')">
+          <label class="left">
+            <ons-radio name="language" id="lv" input-id="lv" value="lv"></ons-radio>
+          </label>
+          <label for="lv" class="celter">
+            Latvian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('lb')">
+          <label class="left">
+            <ons-radio name="language" id="lb" input-id="lb" value="lb"></ons-radio>
+          </label>
+          <label for="lb" class="celter">
+            Luxembourgish
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('mk')">
+          <label class="left">
+            <ons-radio name="language" id="mk" input-id="mk" value="mk"></ons-radio>
+          </label>
+          <label for="mk" class="celter">
+            Macedonian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ms')">
+          <label class="left">
+            <ons-radio name="language" id="ms" input-id="ms" value="ms"></ons-radio>
+          </label>
+          <label for="ms" class="celter">
+            Malay
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('mn')">
+          <label class="left">
+            <ons-radio name="language" id="mn" input-id="mn" value="mn"></ons-radio>
+          </label>
+          <label for="mn" class="celter">
+            Mongolian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('my')">
+          <label class="left">
+            <ons-radio name="language" id="my" input-id="my" value="my"></ons-radio>
+          </label>
+          <label for="my" class="celter">
+            Myanmar
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ne')">
+          <label class="left">
+            <ons-radio name="language" id="ne" input-id="ne" value="ne"></ons-radio>
+          </label>
+          <label for="ne" class="celter">
+            Nepali
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('no')">
+          <label class="left">
+            <ons-radio name="language" id="no" input-id="no" value="no"></ons-radio>
+          </label>
+          <label for="no" class="celter">
+            Norwegian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('fa')">
+          <label class="left">
+            <ons-radio name="language" id="fa" input-id="fa" value="fa"></ons-radio>
+          </label>
+          <label for="fa" class="celter">
+            Persian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('pl')">
+          <label class="left">
+            <ons-radio name="language" id="pl" input-id="pl" value="pl"></ons-radio>
+          </label>
+          <label for="pl" class="celter">
+            Polish
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('pt')">
+          <label class="left">
+            <ons-radio name="language" id="pt" input-id="pt" value="pt"></ons-radio>
+          </label>
+          <label for="pt" class="celter">
+            Portuguese
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('pa')">
+          <label class="left">
+            <ons-radio name="language" id="pa" input-id="pa" value="pa"></ons-radio>
+          </label>
+          <label for="pa" class="celter">
+            Punjabi
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ro')">
+          <label class="left">
+            <ons-radio name="language" id="ro" input-id="ro" value="ro"></ons-radio>
+          </label>
+          <label for="ro" class="celter">
+            Romanian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ru')">
+          <label class="left">
+            <ons-radio name="language" id="ru" input-id="ru" value="ru"></ons-radio>
+          </label>
+          <label for="ru" class="celter">
+            Russian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('sr')">
+          <label class="left">
+            <ons-radio name="language" id="sr" input-id="sr" value="sr"></ons-radio>
+          </label>
+          <label for="sr" class="celter">
+            Serbian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('sk')">
+          <label class="left">
+            <ons-radio name="language" id="sk" input-id="sk" value="sk"></ons-radio>
+          </label>
+          <label for="sk" class="celter">
+            Slovak
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('sl')">
+          <label class="left">
+            <ons-radio name="language" id="sl" input-id="sl" value="sl"></ons-radio>
+          </label>
+          <label for="sl" class="celter">
+            Slovenian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('so')">
+          <label class="left">
+            <ons-radio name="language" id="so" input-id="so" value="so"></ons-radio>
+          </label>
+          <label for="so" class="celter">
+            Somali
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('es')">
+          <label class="left">
+            <ons-radio name="language" id="es" input-id="es" value="es"></ons-radio>
+          </label>
+          <label for="es" class="celter">
+            Spanish
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('su')">
+          <label class="left">
+            <ons-radio name="language" id="su" input-id="su" value="su"></ons-radio>
+          </label>
+          <label for="su" class="celter">
+            Sundanese
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('sv')">
+          <label class="left">
+            <ons-radio name="language" id="sv" input-id="sv" value="sv"></ons-radio>
+          </label>
+          <label for="sv" class="celter">
+            Swedish
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('tl')">
+          <label class="left">
+            <ons-radio name="language" id="tl" input-id="tl" value="tl"></ons-radio>
+          </label>
+          <label for="tl" class="celter">
+            Tagalog
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('th')">
+          <label class="left">
+            <ons-radio name="language" id="th" input-id="th" value="th"></ons-radio>
+          </label>
+          <label for="th" class="celter">
+            Thai
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('tr')">
+          <label class="left">
+            <ons-radio name="language" id="tr" input-id="tr" value="tr"></ons-radio>
+          </label>
+          <label for="tr" class="celter">
+            Turkish
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('uk')">
+          <label class="left">
+            <ons-radio name="language" id="uk" input-id="uk" value="uk"></ons-radio>
+          </label>
+          <label for="uk" class="celter">
+            Ukrainian
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('ur')">
+          <label class="left">
+            <ons-radio name="language" id="ur" input-id="ur" value="ur"></ons-radio>
+          </label>
+          <label for="ur" class="celter">
+            Urdu
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('uz')">
+          <label class="left">
+            <ons-radio name="language" id="uz" input-id="uz" value="uz"></ons-radio>
+          </label>
+          <label for="uz" class="celter">
+            Uzbek
+          </label>
+        </ons-list-item>
+        <ons-list-item tappable onclick="changelanguage('vi')">
+          <label class="left">
+            <ons-radio name="language" id="vi" input-id="vi" value="vi"></ons-radio>
+          </label>
+          <label for="vi" class="celter">
+            Vietnamese
+          </label>
+        </ons-list-item>
+    </ons-list>
+  
+    <script>
+        function changelanguage(id){
+            ons.ready(function(){
+                console.log('Ini Select: '+document.getElementById(id).value);
+                document.getElementById('idlanguage').value = document.getElementById(id).value;
+            });
+        }
+    </script>
+  </ons-page>
